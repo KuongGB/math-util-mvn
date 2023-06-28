@@ -1,0 +1,38 @@
+# dấu thăng là ghi chú
+# name là trên công việc syntax: 'name: '
+# 
+
+name: Math-Utility Repo using Maven, Junit & CI (Cithub Actions) | © 2023 Cuong.Trinh
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 1.8 - Mượn JDK của Kuong Cò
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8.0'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven & Run Test Case
+      run: mvn -B package --file pom.xml
+      
+# tạo file.jar để có thể tải về
+    - name: Distribute jar-war file         # Gửi file .jar .war đi đâu, CD nhảy vào ...
+      run: mkdir staging && cp target/*.jar staging        # tạo thư mục staging chứa file .jar .war sau khi build      
+     
+    - name: Make hyperlink to jar-war file        # Tạo hyperlink để download build 
+      uses: actions/upload-artifact@v1
+      with:
+        name: nha-tuyen-dung-download-jar-o-day.zip    # Đây là hypelink để download .jar  .war bên
+        path: staging
+
