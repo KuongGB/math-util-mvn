@@ -1,0 +1,21 @@
+LỆNH DƯỚI LẶP LẠI CHO TỪNG PROJECT KHI BẮT ĐẦU ĐỒNG BỘ
+
+git init
+git add .
+git commit -m "first commit"
+
+git branch -M main
+git remote add origin https://github.com/KuongGB/math-util-mvn.git
+git push -u origin main
+
+
+SỬA CODE, SỬA THƯ MỤC NHƯ MỌI NGÀY
+SAU ĐÓ VÀO PROJECT, BASH GÕ 3 lệnh mỗi ngày
+
+git add *
+git commit -m "Lí do sửa"
+git push
+
+
+CÚ PHÁP MARK DOWN (HTML DẠNG ĐẶC BIỆT)
+VÀO SỬA EDIT README, GÕ 3 LỆNH TRÊN
